@@ -1,13 +1,11 @@
 #include <iostream>
 using namespace std;
-#include <vector>
-
 
 const int MAXN = 1000500;
 const int MAXVALUE = 100000500;
-
 int n;
 int a[MAXN];
+
 
 int main()
 {
@@ -19,14 +17,25 @@ int main()
         cin >> a[i];
     }
 
-    int maxa = -MAXVALUE - 1;
+    int maxa = -MAXVALUE;
     for (int i = 0; i < n; ++i) {
         if (maxa < a[i]) {
             maxa = a[i];
         }
     }
 
-    cout << maxa << "\n";
+    // посик второго максимума
+
+    int max2a = -MAXVALUE;
+    for (int i = 0; i < n; ++i) {
+        if (a[i] != maxa) {
+            if (max2a < a[i]) {
+                max2a = a[i];
+            }
+        }
+    }
+
+    cout << max2a << "\n";
 
     return 0;
 }
